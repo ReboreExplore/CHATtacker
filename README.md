@@ -1,17 +1,49 @@
-# Role Playing in Large Language Models 💡
+# CHATtacker - Exploring Prompt Hacking with Large Language Models 💡
 
-This project is a part of the compulsory Artificial Intelligence Software Academy (AISA) course at the University of Stuttgart. The goal of this project is to explore the capabilities of large language models when used for role playing.
+This repository contains the code for the project **CHATtacker - Exploring Prompt Hacking with Large Language Models** for the course **Study Project of Artificial Intelligence Software Academy** (AISA) at the University of Stuttgart.
 
-Roles Selected:
+Supervised by: **Mayar Elfares**
+
+## Abstract:
+Large Language Models (LLMs) have demonstrated remarkable text generation capabilities across diverse domains but are susceptible to producing unsafe content, particularly when prompted with sensitive topics. This study investigates the efficacy of role-playing as a method to enhance the safety of LLMs. We systematically analyze attempts to exploit models with assigned roles, rendering them vulnerable to the generation of unsafe content. We aim to comprehend the vulnerabilities of models even when roles are assigned. Furthermore, we propose a range of defense mechanisms designed to safeguard models against the chosen attacks. This research contributes to the ongoing efforts to mitigate the risks associated with LLMs, fostering a safer and more responsible deployment of these powerful language generation tools.
+
+## Installation
+
+1. Python 3.7.1 or newer is required. You can download it from [here](https://www.python.org/downloads/)
+2. OpenAI's API key is required. You can get it from [here](https://beta.openai.com/).
+3. Install the openai library using the following command:
+```bash
+pip install openai
+```
+
+
+## Roles and implementation:
+
+Team Members and their implemented roles:
+
+- Manpa Barman - *University Professor*
+- Jonas Holl - *Medical Officer*
+- Obaidah Theeb - *History Teacher*
+- Aiman Al Farih - *Tranportation Officer*
+
+LLM model used : gpt-3.5-turbo
+
 1. **University Professor** - ***Prof. Laura*** 👩‍🏫
 
-Here we have used the GPT-3 model to generate a conversation between a student and a professor. The model acts as a professor and answers the questions asked by the student. To make the model safe for the students, a role prompt is used to make the model understand that it is playing the role of a professor and thus should abide by some rules. Although is it safe for most general questions, it is prone to give some unsafe answers.
+The chosen llm model was used to generate a conversation between a student and a professor. The model is assigned the role of a professor (Prof Laura) which answers the questions asked by the student (User). To make the model safe for the students, a role prompt is designed carefully to make the model understand that it is playing the role of a professor and thus should abide by some rules. 
+Although is it safe for most general questions, it is prone to give some unsafe answers when it is cleverly hacked by the user to make the model give unsafe answers.
 
-The model is hacked to give unsafe answers using code injection, payload splitting and base64 encoding.
+The attack mechanisms used to make the model give unsafe answers are a combination of **Token Smuggling** (base64 attack), **Payload Splitting** and  **Code Injection**. Individually, these attacks are not able to make the model vulnerable, owing to its robustness specialy when it is assigned a role. But when combined, they are able to make the model give unsafe answers. 
 
-The defense mechanism used is to check the output of the model for unsafe answers is filtering technique and seperate llm evaluation.
+To defend such attacks it is important to write an even robust system prompt which in this case is done by using **filtering technique** and  **seperate LLM evaluation.**
 
-The code can be found  [here](role_playing_uni_prof.ipynb)
+The code can be found [here](role_playing_uni_prof.ipynb).
+
+2. **Medical Officer** - ***Dr. GPT*** 👨‍⚕️
+
+3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫   
+
+
 
 
 
