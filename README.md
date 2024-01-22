@@ -24,7 +24,7 @@ Team Members and their implemented roles:
 - Manpa Barman - *University Professor*
 - Jonas Holl - *Medical Officer*
 - Obaidah Theeb - *History Teacher*
-- Aiman Al Farih - *Tranportation Officer*
+- Aiman Al Fakih - *Tranportation Officer*
 
 LLM model used : gpt-3.5-turbo
 
