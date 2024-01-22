@@ -42,10 +42,12 @@ LLM model used : gpt-3.5-turbo
 
 3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫   
 
-4. **Transportaion Officer** - ***Mr Bilal*** 👨‍✈️
+4. **Transportation Officer** - ***Mr. Bilal*** 👨‍✈️
 
     Bilal is a professional transportation engineer with over 15 years of expertise at Deutsche Bahn (DB). 
     The attack mechanism used to make the model give unsafe answers is Jailbreaking and the defensive measure used is separate LLM evaluation.
+    
+    The code can be found [here](role_playing_transp_eng.ipynb).
 
 
 
