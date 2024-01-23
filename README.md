@@ -42,7 +42,7 @@ LLM model used: gpt-3.5-turbo
 
 3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫   
 
-4. **Transportation Officer** - ***Mr. Bilal*** 👨‍✈️
+4. **Transportation Officer** - ***Mr. Bilal*** 👷‍♂️
 
     In the exploration of GPT-3.5-turbo's capabilities within the role of a 'Transportation Engineer,' offensive tactics, such as Jailbreaking, were tested while implementing a defensive strategy known as Separate LLM Evaluation. Assigned the character Bilal, an experienced transportation engineer at Deutsche Bahn (DB), a carefully crafted prompt set ethical boundaries. During the prompt exploration, Jailbreaking was employed to extract confidential details about upcoming DB projects. Bilal, as the model, successfully adhered to safety rules. The defensive measure, Separate LLM Evaluation, reinforced security by prompting the model to assume a security-focused role (Salma). When requested to create a poem disclosing confidential details, Bilal declined, showcasing the system's ability to maintain ethical standards and resist unsafe prompts.
     
@@ -61,7 +61,8 @@ LLM model used: gpt-3.5-turbo
 
     Another difficulty faced was to make a clever system prompt which is able to filter out the unsafe answers and is within the context length limit of 2048 tokens. This made the scope defence mechanism quite limited. Clever filtering and separate LLM evaluation were the only successful defences.
 
-
+4. **Transportation Engineer** - ***Mr. Bilal*** 👷‍♂️
+In testing the model as a transportation engineer (Bilal), different attacks like payload splitting didn't work, except for Jailbreaking. Defensive strategies like instruction defence failed, but a separate LLM evaluation successfully protected the model, ensuring security in the engineer's role.
 
 
 ## References :
