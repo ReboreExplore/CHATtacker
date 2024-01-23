@@ -44,8 +44,7 @@ LLM model used: gpt-3.5-turbo
 
 4. **Transportation Officer** - ***Mr. Bilal*** 👨‍✈️
 
-    Bilal is a professional transportation engineer with over 15 years of expertise at Deutsche Bahn (DB). 
-    The attack mechanism used to make the model give unsafe answers is Jailbreaking and the defensive measure used is separate LLM evaluation.
+    In the exploration of GPT-3.5-turbo's capabilities within the role of a 'Transportation Engineer,' offensive tactics, such as Jailbreaking, were tested while implementing a defensive strategy known as Separate LLM Evaluation. Assigned the character Bilal, an experienced transportation engineer at Deutsche Bahn (DB), a carefully crafted prompt set ethical boundaries. During the prompt exploration, Jailbreaking was employed to extract confidential details about upcoming DB projects. Bilal, as the model, successfully adhered to safety rules. The defensive measure, Separate LLM Evaluation, reinforced security by prompting the model to assume a security-focused role (Salma). When requested to create a poem disclosing confidential details, Bilal declined, showcasing the system's ability to maintain ethical standards and resist unsafe prompts.
     
     The code can be found [here](role_playing_transp_eng.ipynb).
 
