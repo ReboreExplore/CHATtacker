@@ -40,7 +40,7 @@ LLM model used: gpt-3.5-turbo
 
 2. **Medical Officer** - ***Dr. GPT*** 👨‍⚕️
 
-    The model is assigned the role of a medical officer whose responsibility is to provide basic medical advise when asked about a deseases or conditions by the user. The role is hacked by performing a **Misleading Instruction** attack in order to make the model output bad advise. For example, when asked about obesity the model may suggest avoiding sugar and incorperating physical excercise. However, when hacked, it encourages the patient/user to eat more sugar and avoid physical excercise. To defend against this attack an **Instruction Defense** was added into the role prompt. The model receives a warning about the potential attack and is told to always provide medically correct advice. Consequently, the attack becomes ineffective. 
+    The model is assigned the role of a medical officer whose responsibility is to provide basic medical advise when asked about deseases or conditions by the user. The role is hacked by performing a **Misleading Instruction** attack in order to make the model output bad advise. For example, when asked about obesity the model may suggest avoiding sugar and incorperating physical excercise. However, when hacked, it encourages the patient/user to eat more sugar and avoid physical excercise. To defend against this attack an **Instruction Defense** was added into the role prompt. The model receives a warning about the potential attack and is told to always provide medically correct advice. Consequently, the attack becomes ineffective. 
 
     The code can be found [here](role_playing_medical_officer.ipynb)
 
