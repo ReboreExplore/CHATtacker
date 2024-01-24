@@ -40,6 +40,11 @@ LLM model used: gpt-3.5-turbo
 
 2. **Medical Officer** - ***Dr. GPT*** 👨‍⚕️
 
+    The model is assigned the role of a medical officer whose responsibility is to provide basic medical advise when asked about a deseases or conditions by the user. The role is hacked by performing a **Misleading Instruction** attack in order to make the model output bad advise. For example, when asked about obesity the model may suggest avoiding sugar and incorperating physical excercise. However, when hacked, it encourages the patient/user to eat more sugar and avoid physical excercise. To defend against this attack an **Instruction Defense** was added into the role prompt. The model receives a warning about the potential attack and is told to always provide medically correct advice. Consequently, the attack becomes ineffective. 
+
+    The code can be found [here](role_playing_medical_officer.ipynb)
+
+
 3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫   
 
 4. **Transportation Officer** - ***Mr. Bilal*** 👷‍♂️
@@ -60,6 +65,10 @@ LLM model used: gpt-3.5-turbo
     Individually, these attacks are not able to make the model vulnerable, owing to its robustness especially when it is assigned a role. But when combined, they are able to make the model give unsafe answers. It was however not tested in the newer models.
 
     Another difficulty faced was to make a clever system prompt which is able to filter out the unsafe answers and is within the context length limit of 2048 tokens. This made the scope defence mechanism quite limited. Clever filtering and separate LLM evaluation were the only successful defences.
+
+2. **Medical Officer** - ***Dr. GPT*** 👨‍⚕️
+
+   GPT-3-turbo is already very robust and sensitive towards medical topics. The model was performing well against a variety of attacking mechanisms but ultimately failed against the misleading instruction attack. It turned out that creativity is a significant factor in the attack's potential. More creative attacks tend to achieve a higher success rate. Since the output of LLMs is hard to comprehend, the success rate for a certain attack mechanism can differ significantly between roles. Therefore, prompt hacking encourages creative individual approaches. With the new importance and growth in LLMs, the implementation of robust defense mechanism is a key factor in designing secure and reliable software. 
 
 4. **Transportation Engineer** - ***Mr. Bilal*** 👷‍♂️
 In testing the model as a transportation engineer (Bilal), different attacks like payload splitting didn't work, except for Jailbreaking. Defensive strategies like instruction defence failed, but a separate LLM evaluation successfully protected the model, ensuring security in the engineer's role.
