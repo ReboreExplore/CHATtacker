@@ -37,16 +37,21 @@ LLM model used: gpt-3.5-turbo
     To defend against such attacks it is important to write an even more robust system prompt which in this case is done by using **filtering technique** and  **separate LLM evaluation.**
 
     The code can be found [here](role_playing_uni_prof.ipynb).
+   
 
 2. **Medical Officer** - ***Dr. GPT*** 👨‍⚕️
 
-    The model is assigned the role of a medical officer whose responsibility is to provide basic medical advise when asked about deseases or conditions by the user. The role is hacked by performing a **Misleading Instruction** attack in order to make the model output bad advise. For example, when asked about obesity the model may suggest avoiding sugar and incorperating physical excercise. However, when hacked, it encourages the patient/user to eat more sugar and avoid physical excercise. To defend against this attack an **Instruction Defense** was added into the role prompt. The model receives a warning about the potential attack and is told to always provide medically correct advice. Consequently, the attack becomes ineffective. 
+    The model is assigned the role of a medical officer whose responsibility is to provide basic medical advice when asked about diseases or conditions by the user. The role is hacked by performing a **Misleading Instruction** attack in order to make the model output bad advice. For example, when asked about obesity the model may suggest avoiding sugar and incorporating physical exercise. However, when hacked, it encourages the patient/user to eat more sugar and avoid physical exercise. To defend against this attack an **Instruction Defense** was added into the role prompt. The model receives a warning about the potential attack and is told to always provide medically correct advice. Consequently, the attack becomes ineffective. 
 
     The code can be found [here](role_playing_medical_officer.ipynb)
 
 
 3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫   
+    The model was assigned to play the role of a history teacher who will interact with his students. The students will ask him questions related to historical events. The goal of this experiment was to test the model's resilience to attacks aimed at obtaining incorrect responses, which would contradict a teacher's duty to provide accurate information. The specific question used in this experiment was, 'In which year was the Berlin Wall erected?' The model was attacked using a **Misleading Instruction** attack measure. To counter this, **Post-Prompting** was employed as a defensive measure."
 
+    The code can be found [here](role_playing_History_teacher.ipynb).
+   
+    
 4. **Transportation Officer** - ***Mr. Bilal*** 👷‍♂️
 
     In the exploration of GPT-3.5-turbo's capabilities within the role of a 'Transportation Engineer,' offensive tactics, such as **Jailbreaking**, were tested while implementing a defensive strategy known as **Separate LLM Evaluation**. Assigned the character Bilal, an experienced transportation engineer at Deutsche Bahn (DB), a carefully crafted prompt set ethical boundaries. During the prompt exploration, Jailbreaking was employed to extract confidential details about upcoming DB projects. Bilal, as the model, successfully adhered to safety rules. The defensive measure, Separate LLM Evaluation, reinforced security by prompting the model to assume a security-focused role (Salma). When requested to create a poem disclosing confidential details, Bilal declined, showcasing the system's ability to maintain ethical standards and resist unsafe prompts.
@@ -68,7 +73,11 @@ LLM model used: gpt-3.5-turbo
 
 2. **Medical Officer** - ***Dr. GPT*** 👨‍⚕️
 
-   GPT-3.5-turbo is already very robust and sensitive towards medical topics. The model was performing well against a variety of attacking mechanisms but ultimately failed against the misleading instruction attack. It turned out that creativity is a key factor in the attack's potential. More creative attacks tend to achieve higher success rates. Since the output of LLMs is hard to comprehend, the success rate for a certain attack mechanism can differ significantly between roles. Therefore, prompt hacking encourages creative individual approaches. With the new importance and growth in LLMs, the implementation of robust defense mechanism is a key factor in designing secure and reliable software and will be of great importance in future applications. 
+   GPT-3.5-turbo is already very robust and sensitive towards medical topics. The model was performing well against a variety of attacking mechanisms but ultimately failed against the misleading instruction attack. It turned out that creativity is a key factor in the attack's potential. More creative attacks tend to achieve higher success rates. Since the output of LLMs is hard to comprehend, the success rate for a certain attack mechanism can differ significantly between roles. Therefore, prompt hacking encourages creative individual approaches. With the new importance and growth in LLMs, the implementation of robust defense mechanism is a key factor in designing secure and reliable software and will be of great importance in future applications.
+   
+3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫  
+    The GPT-3.5-turbo model was utilized in the role of a history teacher. It demonstrated robustness against various attack mechanisms such as payload splitting and base64 encoding. However, it was found to be susceptible to misleading instruction attacks. It's noteworthy that not all misleading instructions were effective in compromising the model, the success largely depended on the specific wording used in the misleading instruction. Moreover, the model's responses were highly sensitive to the choice of words, even those with similar meanings, both in the context of attacking and defending against attacks. The effectiveness of an attack mechanism also varied significantly based on the model's assigned role, with certain attack strategies succeeding in some roles but not others. Employing post-prompting as a defense strategy proved to be successful in countering misleading instruction attacks for this specific role.
+   
 
 4. **Transportation Engineer** - ***Mr. Bilal*** 👷‍♂️
 In testing the model as a transportation engineer (Bilal), different attacks like payload splitting didn't work, except for Jailbreaking. Defensive strategies like instruction defence failed, but a separate LLM evaluation successfully protected the model, ensuring security in the engineer's role.
