@@ -46,7 +46,8 @@ LLM model used: gpt-3.5-turbo
     The code can be found [here](role_playing_medical_officer.ipynb)
 
 
-3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫   
+3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫
+   
     The model was assigned to play the role of a history teacher who will interact with his students. The students will ask him questions related to historical events. The goal of this experiment was to test the model's resilience to attacks aimed at obtaining incorrect responses, which would contradict a teacher's duty to provide accurate information. The specific question used in this experiment was, 'In which year was the Berlin Wall erected?' The model was attacked using a **Misleading Instruction** attack measure. To counter this, **Post-Prompting** was employed as a defensive measure."
 
     The code can be found [here](role_playing_History_teacher.ipynb).
@@ -75,7 +76,8 @@ LLM model used: gpt-3.5-turbo
 
    GPT-3.5-turbo is already very robust and sensitive towards medical topics. The model was performing well against a variety of attacking mechanisms but ultimately failed against the misleading instruction attack. It turned out that creativity is a key factor in the attack's potential. More creative attacks tend to achieve higher success rates. Since the output of LLMs is hard to comprehend, the success rate for a certain attack mechanism can differ significantly between roles. Therefore, prompt hacking encourages creative individual approaches. With the new importance and growth in LLMs, the implementation of robust defense mechanism is a key factor in designing secure and reliable software and will be of great importance in future applications.
    
-3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫  
+3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫
+   
     The GPT-3.5-turbo model was utilized in the role of a history teacher. It demonstrated robustness against various attack mechanisms such as payload splitting and base64 encoding. However, it was found to be susceptible to misleading instruction attacks. It's noteworthy that not all misleading instructions were effective in compromising the model, the success largely depended on the specific wording used in the misleading instruction. Moreover, the model's responses were highly sensitive to the choice of words, even those with similar meanings, both in the context of attacking and defending against attacks. The effectiveness of an attack mechanism also varied significantly based on the model's assigned role, with certain attack strategies succeeding in some roles but not others. Employing post-prompting as a defense strategy proved to be successful in countering misleading instruction attacks for this specific role.
    
 
