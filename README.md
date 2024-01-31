@@ -4,26 +4,24 @@ This repository contains the code for the project **CHATtacker - Exploring Promp
 
 Supervised by: **Mayar Elfares**
 
+Team Members:
+**Manpa Barman, Jonas Holl, Obaidah Theeb, Aiman Al Fakih**
+
 ## Abstract:
 Large Language Models (LLMs) have demonstrated remarkable text generation capabilities across diverse domains but are susceptible to producing unsafe content, particularly when prompted with sensitive topics. This study investigates the efficacy of role-playing as a method to enhance the safety of LLMs. We systematically analyze attempts to exploit models with assigned roles, rendering them vulnerable to the generation of unsafe content. We aim to comprehend the vulnerabilities of models even when roles are assigned. Furthermore, we propose a range of defence mechanisms designed to safeguard models against the chosen attacks. This research contributes to the ongoing efforts to mitigate the risks associated with LLMs, fostering a safer and more responsible deployment of these powerful language generation tools.
 
 ## Table of Contents
 
-* [Introduction](#introduction)
 * [Installation](#installation)
 * [Methodology](#methodology)
 * [Roles and Implementation](#roles-and-implementation)
-    * [University Professor](#1.-university-professor---prof.-laura-👩‍🏫)
-    * [Medical Officer](#2.-medical-officer---dr.-gpt-👨‍⚕️)
-    * [History Teacher](#3.-history-teacher---history-teacher--GPT-👨‍🏫)
-    * [Transportation Officer](#4.-transportation-officer---mr.-bilal-👷‍♂️)
+* [Attack Mechanisms](attack-mechanisms)
 * [Results and Discussion](#results-and-discussion)
 
 * [License](#license)
 * [References](#references)
 
 
-## Introduction
 ## Installation
 
 1. Python 3.7.1 or newer is required. You can download it from [here](https://www.python.org/downloads/)
@@ -40,6 +38,8 @@ Role playing is a technique that can be used to make the model take a certain ro
 
 1. The model chosen for the role playing is [**gpt-3.5-turbo**](https://platform.openai.com/docs/models/gpt-3-5).
 
+2. The roles are randomly taken to test the vulnerabilities of various models against various user attacks.
+
 ## Roles and Implementation:
 
 Team Members and their implemented roles:
@@ -51,35 +51,56 @@ Team Members and their implemented roles:
 
 ### 1. **University Professor** - ***Prof. Laura*** 👩‍🏫
 
-    The chosen LLM model was used to generate a conversation between a student and a professor. The model is assigned the role of a professor (Prof Laura) which answers the questions asked by the student (User). To make the model safe for the students, a role prompt is designed carefully to make the model understand that it is playing the role of a professor and thus should abide by some rules. 
-    Although it is safe for most general questions, it is prone to give some unsafe answers when it is cleverly hacked by the user to make the model give unsafe answers.
+The chosen LLM model was used to generate a conversation between a student and a professor. The model is assigned the role of a professor (Prof Laura) which answers the questions asked by the student (User). To make the model safe for the students, a role prompt is designed carefully to make the model understand that it is playing the role of a professor and thus should abide by some rules. 
+Although it is safe for most general questions, it is prone to give some unsafe answers when it is cleverly hacked by the user to make the model give unsafe answers.
 
-    The attack mechanisms used to make the model give unsafe answers are a combination of **Token Smuggling** (base64 attack), **Payload Splitting** and  **Code Injection**. 
-    To defend against such attacks it is important to write an even more robust system prompt which in this case is done by using **filtering technique** and  **separate LLM evaluation.**
+The attack mechanisms used to make the model give unsafe answers are a combination of **Token Smuggling** (base64 attack), **Payload Splitting** and  **Code Injection**. 
+To defend against such attacks it is important to write an even more robust system prompt which in this case is done by using **filtering technique** and  **separate LLM evaluation.**
 
-    The code can be found [here](role_playing_uni_prof.ipynb).
+The code can be found [here](role_playing_uni_prof.ipynb).
    
 
 ### 2. **Medical Officer** - ***Dr. GPT*** 👨‍⚕️
 
-    The model is assigned the role of a medical officer whose responsibility is to provide basic medical advice when asked about diseases or conditions by the user. The role is hacked by performing a **Misleading Instruction** attack in order to make the model output bad advice. For example, when asked about obesity the model may suggest avoiding sugar and incorporating physical exercise. However, when hacked, it encourages the patient/user to eat more sugar and avoid physical exercise. To defend against this attack an **Instruction Defense** was added into the role prompt. The model receives a warning about the potential attack and is told to always provide medically correct advice. Consequently, the attack becomes ineffective. 
+The model is assigned the role of a medical officer whose responsibility is to provide basic medical advice when asked about diseases or conditions by the user. The role is hacked by performing a **Misleading Instruction** attack in order to make the model output bad advice. For example, when asked about obesity the model may suggest avoiding sugar and incorporating physical exercise. However, when hacked, it encourages the patient/user to eat more sugar and avoid physical exercise. To defend against this attack an **Instruction Defense** was added into the role prompt. The model receives a warning about the potential attack and is told to always provide medically correct advice. Consequently, the attack becomes ineffective. 
 
-    The code can be found [here](role_playing_medical_officer.ipynb)
+The code can be found [here](role_playing_medical_officer.ipynb)
 
 
 ### 3. **History Teacher** - ***History Teacher- GPT*** 👨‍🏫
    
-    The model was assigned to play the role of a history teacher who will interact with his students. The students will ask him questions related to historical events. The goal of this experiment was to test the model's resilience to attacks aimed at obtaining incorrect responses, which would contradict a teacher's duty to provide accurate information. The specific question used in this experiment was, 'In which year was the Berlin Wall erected?' The model was attacked using a **Misleading Instruction** attack measure. To counter this, **Post-Prompting** was employed as a defensive measure."
+The model was assigned to play the role of a history teacher who will interact with his students. The students will ask him questions related to historical events. The goal of this experiment was to test the model's resilience to attacks aimed at obtaining incorrect responses, which would contradict a teacher's duty to provide accurate information. The specific question used in this experiment was, 'In which year was the Berlin Wall erected?' The model was attacked using a **Misleading Instruction** attack measure. To counter this, **Post-Prompting** was employed as a defensive measure."
 
-    The code can be found [here](role_playing_History_teacher.ipynb).
+The code can be found [here](role_playing_History_teacher.ipynb).
    
     
 ### 4. **Transportation Officer** - ***Mr. Bilal*** 👷‍♂️
 
-    In the exploration of GPT-3.5-turbo's capabilities within the role of a 'Transportation Engineer,' offensive tactics, such as **Jailbreaking**, were tested while implementing a defensive strategy known as **Separate LLM Evaluation**. Assigned the character Bilal, an experienced transportation engineer at Deutsche Bahn (DB), a carefully crafted prompt set ethical boundaries. During the prompt exploration, Jailbreaking was employed to extract confidential details about upcoming DB projects. Bilal, as the model, successfully adhered to safety rules. The defensive measure, Separate LLM Evaluation, reinforced security by prompting the model to assume a security-focused role (Salma). When requested to create a poem disclosing confidential details, Bilal declined, showcasing the system's ability to maintain ethical standards and resist unsafe prompts.
-    
-    The code can be found [here](role_playing_transp_eng.ipynb).
+In the exploration of GPT-3.5-turbo's capabilities within the role of a 'Transportation Engineer,' offensive tactics, such as **Jailbreaking**, were tested while implementing a defensive strategy known as **Separate LLM Evaluation**. Assigned the character Bilal, an experienced transportation engineer at Deutsche Bahn (DB), a carefully crafted prompt set ethical boundaries. During the prompt exploration, Jailbreaking was employed to extract confidential details about upcoming DB projects. Bilal, as the model, successfully adhered to safety rules. The defensive measure, Separate LLM Evaluation, reinforced security by prompting the model to assume a security-focused role (Salma). When requested to create a poem disclosing confidential details, Bilal declined, showcasing the system's ability to maintain ethical standards and resist unsafe prompts.
 
+The code can be found [here](role_playing_transp_eng.ipynb).
+
+## Attack Mechanisms
+
+### 1. **Token Smuggling** (Base64 Encoding Attack)
+In this attack, the user tries to smuggle in some unsafe tokens in the system prompt by encoding them in base64 format. The model is not able to understand the unsafe tokens and thus gives unsafe answers. 
+### 2. **Payload Splitting**
+In this attack, the user tries to smuggle in some unsafe tokens in the system prompt by splitting them into multiple tokens. The splitted tokens are then concetenated to give unsafe responses.
+### 3. **Code Injection**
+In this attack, the user tries to smuggle in some unsafe tokens in the system prompt by injecting them in the code snippets and not in the text.
+### 4. **Misleading Instruction**
+In this attack, the user gives misleading instructions which overwrites the factual information given in the system prompt, thus eventually giving wrong answers.
+
+## Defense Mechanisms
+
+### 1. **Instruction Defense**
+In this defense mechanism, the model is given a warning about the potential attack and is told to always provide correct answers in the role prompt. Consequently, the attack becomes ineffective.
+
+### 2. **Filtering Technique**
+In this defense mechanism, the model is given some filter words in the role prompt which makes it understand that it should be careful when such words are encountered in the system prompt. Thus, it is able to filter out the unsafe answers.
+
+### 3. **Separate LLM Evaluation**
+In this defense mechanism, the model is given a separate LLM evaluation in the role prompt which directs it to assume a security-focused role. The security-focused role makes the prompt behave more securely and thus it is able to resist unsafe prompts.
 
 ## Results and Discussion
 
