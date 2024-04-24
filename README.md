@@ -2,7 +2,7 @@
 
 This repository contains the code for the project **CHATtacker - Exploring Prompt Hacking with Large Language Models** for the course study project of **Artificial Intelligence Software Academy** (AISA) at the University of Stuttgart.
 
-Supervised by: **Mayar Elfares**
+Supervised by: **Mayar Alfares**
 
 Team Members:
 **Manpa Barman, Jonas Holl, Obaidah Theeb, Aiman Al Fakih**
